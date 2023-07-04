@@ -29,7 +29,7 @@ Future<String> getAuthToken() async {
 
   } catch (error) {
     // Handle any errors
-    print('Error: $error');
+    log('Error: $error');
   }
   return'';
 }

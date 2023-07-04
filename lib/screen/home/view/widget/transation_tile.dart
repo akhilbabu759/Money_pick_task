@@ -29,9 +29,9 @@ class TransationTile extends StatelessWidget {
                                     children: [
               Row(
                 children: [
-                  Container(height: 45,width: 46,decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),color: Color.fromARGB(255, 20, 68, 91)),child: Icon(Icons.arrow_outward_sharp,color: colorWhite,),),
-                  SizedBox(width: 10,),Column(mainAxisAlignment: MainAxisAlignment.center,crossAxisAlignment: CrossAxisAlignment.start,
-              children: [Text(desce,style: TextStyle(fontWeight: FontWeight.bold,overflow: TextOverflow.ellipsis),),SizedBox(height: 5),Text('${date.substring(8,10)}.${mnth[int.parse(date.substring(5,7))-1]}.${int.parse(date.substring(11,13))>12?int.parse(date.substring(11,13))-12:date.substring(11,13)}${date.substring(13,16)}.${int.parse(date.substring(11,13))>12?'pm':'am'}')],)
+                  Container(height: 45,width: 46,decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),color: const Color.fromARGB(255, 20, 68, 91)),child: const Icon(Icons.arrow_outward_sharp,color: colorWhite,),),
+                  const SizedBox(width: 10,),Column(mainAxisAlignment: MainAxisAlignment.center,crossAxisAlignment: CrossAxisAlignment.start,
+              children: [Text(desce,style: const TextStyle(fontWeight: FontWeight.bold,overflow: TextOverflow.ellipsis),),const SizedBox(height: 5),Text('${date.substring(8,10)}.${mnth[int.parse(date.substring(5,7))-1]}.${int.parse(date.substring(11,13))>12?int.parse(date.substring(11,13))-12:date.substring(11,13)}${date.substring(13,16)}.${int.parse(date.substring(11,13))>12?'pm':'am'}')],)
                 ],
               )
                                      ,

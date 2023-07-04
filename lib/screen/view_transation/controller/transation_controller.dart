@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:get/get.dart';
-import 'package:money_pick/screen/home/controller/home_controller.dart';
+
 import 'package:money_pick/screen/home/model/transation_model.dart';
 import 'package:money_pick/screen/home/service/home_service.dart';
 

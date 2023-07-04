@@ -9,10 +9,7 @@ class HomeService {
   Future<List<TransactionData>?> getTransactions() async {
     String? token = await getAuthToken();
 
-    if (token == null) {
-      log('Authentication token is null');
-      return null;
-    }
+    
 
     Dio dio = Dio();
     dio.options.headers = {'authtoken': token};

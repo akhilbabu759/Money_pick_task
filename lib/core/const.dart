@@ -27,28 +27,28 @@ const List<Color> circularAvatarColour = [
   Color.fromARGB(255, 158, 197, 236),
   Color.fromARGB(255, 158, 236, 159)
 ];
-List<LinearGradient> listGradaint=[LinearGradient(
+List<LinearGradient> listGradaint=[const LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
               colors: [
-                const Color.fromARGB(0, 255, 255, 255),
+                Color.fromARGB(0, 255, 255, 255),
                 Color.fromARGB(255, 186, 158, 236)
-              ]),LinearGradient(
+              ]),const LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
               colors: [
-                const Color.fromARGB(0, 255, 255, 255),
+                Color.fromARGB(0, 255, 255, 255),
                 Color.fromARGB(255, 236, 232, 158)
-              ]),LinearGradient(
+              ]),const LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
               colors: [
-                const Color.fromARGB(0, 255, 255, 255),
+                Color.fromARGB(0, 255, 255, 255),
                 Color.fromARGB(255, 158, 197, 236)
-              ]),LinearGradient(
+              ]),const LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
               colors: [
-                const Color.fromARGB(0, 255, 255, 255),
+                Color.fromARGB(0, 255, 255, 255),
                 Color.fromARGB(255, 158, 236, 159)
               ])];

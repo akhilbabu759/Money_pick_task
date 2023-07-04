@@ -11,8 +11,8 @@ final String tex;
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height * 0.15,
-      width: MediaQuery.of(context).size.width * 0.38,
+      height: MediaQuery.of(context).size.height * 0.1,
+      width: MediaQuery.of(context).size.width * 0.49,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(11),
           gradient: gradien),
@@ -22,7 +22,7 @@ final String tex;
           child: icon,
         ),Padding(
           padding: const EdgeInsets.only(left:8.0,right: 8),
-          child: Text(tex,overflow: TextOverflow.ellipsis,maxLines: 2,textAlign: TextAlign.center),
+          child: Text(tex,overflow: TextOverflow.ellipsis,maxLines: 2,textAlign: TextAlign.center,style: TextStyle(fontSize: MediaQuery.of(context).size.width * 0.49*0.09),),
         )
       ]),
     );
