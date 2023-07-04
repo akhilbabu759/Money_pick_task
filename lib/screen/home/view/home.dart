@@ -6,10 +6,12 @@ import 'package:get/get.dart';
 import 'package:money_pick/core/const.dart';
 import 'package:money_pick/screen/home/controller/home_controller.dart';
 import 'package:money_pick/screen/home/service/home_service.dart';
+import 'package:money_pick/screen/view_transation/view/transation_all.dart';
 import 'package:money_pick/util/dio_token/dio_token.dart';
 
 import 'widget/after_appbar_card.dart';
 import 'widget/before_alltransation.dart';
+import 'widget/transation_tile.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -43,10 +45,11 @@ class Home extends StatelessWidget {
       'Open a Marlo business account',
       'Get prequalified'
     ];
-    return Scaffold(bottomNavigationBar: BottomNavigationBar(selectedItemColor: Color.fromRGBO(9,8,9,9),unselectedItemColor:Color.fromRGBO(158, 118, 158, 0.969) ,
+    return Scaffold(bottomNavigationBar: BottomNavigationBar(selectedItemColor: Color.fromRGBO(57, 167, 213, 0.969),unselectedItemColor:Color.fromRGBO(105, 105, 105, 0.969) ,
       items: [BottomNavigationBarItem(icon: Icon(Icons.home),label: 'home'),BottomNavigationBarItem(icon: Icon(Icons.money),label: 'Loans'),BottomNavigationBarItem(icon: Icon(Icons.contrast),label: 'contracts'),BottomNavigationBarItem(icon: Icon(Icons.people),label: 'teams'),BottomNavigationBarItem(icon: Icon(Icons.chat),label: 'Chats')]),
       backgroundColor: const Color.fromARGB(255, 246, 246, 246),
-      body: SafeArea(
+      body:GetBuilder<HomeController>(builder: (controller) {
+        return cont.apiVal!.isEmpty?Center(child: CircularProgressIndicator(),) :SafeArea(
           child: Padding(
         padding: const EdgeInsets.only(left: 15.0, right: 15),
         child: Column(
@@ -77,7 +80,7 @@ class Home extends StatelessWidget {
               ),
             ),
             Flexible(
-              child: SizedBox(
+              child: Container(color:Color.fromARGB(255, 246, 246, 246) ,
                 height: MediaQuery.of(context).size.height * 0.2,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
@@ -142,7 +145,7 @@ class Home extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                         fontSize: 18),
                   ),
-                  TextButton(onPressed: () {}, child: Text('See all'))
+                  TextButton(onPressed: () {Get.to(TransationAll());}, child: Text('See all'))
                 ],
               )),
             ),
@@ -150,39 +153,16 @@ class Home extends StatelessWidget {
               child: ListView.builder(
                 itemCount: 5,
                 itemBuilder: (context, index) {
-                  // log(cont.apiVal![0].amount);
-                  return Padding(
-                    padding: const EdgeInsets.all(2.0),
-                    child: Container(
-                      height: 80,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: Center(
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                  children: [
-                            Row(
-                              children: [
-                                Container(height: 45,width: 46,decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),color: Color.fromARGB(255, 20, 68, 91)),child: Icon(Icons.arrow_outward_sharp,color: colorWhite,),),
-                                SizedBox(width: 10,),Column(mainAxisAlignment: MainAxisAlignment.center,crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [Text('REnt',style: TextStyle(fontWeight: FontWeight.bold,),),SizedBox(height: 5),Text('sat.16jul.9.00 pm')],)
-                              ],
-                            )
-                                                   ,
-                            Text('-850')
-                                                  ],
-                                                ),
-                          )),
-                    ),
-                  );
+                  //  log(cont.apiVal![index].sourceType);
+                  return TransationTile(amnt:  cont.apiVal![index].amount,date:cont.apiVal![index].settledAt ,source:cont.apiVal![index].sourceType ,desce:cont.apiVal![index].description ,);
                 },
               ),
             )
           ],
         ),
-      )),
-    );
+      ));
+      },
+    ));
   }
 }
+
